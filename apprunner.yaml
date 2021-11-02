@@ -1,0 +1,22 @@
+version: 1.0
+runtime: python3 
+build:
+  commands:
+    build:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+    post-build:
+      - pylint --disable=R,C,W1203,W0702 changeApp.py
+      - python -m pytest -vv --cov=app test_changeApp.py
+  env:
+    - name: MY_VAR_EXAMPLE
+      value: "example"
+
+run: 
+  runtime-version: 3.7.7
+  command: python changeApp.py
+  network: 
+    port: 8000
+  env:
+    - name: MY_VAR_EXAMPLE
+      value: "example"
