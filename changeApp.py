@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import jsonify
+import sys
+
 app = Flask(__name__)
 
 def change(amount):
@@ -29,7 +31,7 @@ def change(amount):
 def hello():
     """Return a friendly HTTP greeting."""
     print("I am inside hello world")
-    return 'Hello World! I can make change at route: /change'
+    return f"Hello World! Running {sys.version} - I can make change at route: /change"
 
 @app.route('/change/<dollar>/<cents>')
 def changeroute(dollar, cents):
