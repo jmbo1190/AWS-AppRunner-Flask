@@ -4,3 +4,5 @@ This is a simple python flask app that calculates change from dollars and cents 
 
 # Testing Deployment and Continuous Delivery with AWS App Runner
 
+This uses the configuration file apprunner.yaml.
+
